@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+    <script>
+      const node = new window.Ipfs();
+      const hash = 'QmSFRW9L8jMScbWXqYirQt3jCdbfnTy11fJEePh4KMERoh/index.html'
+
+      node.on('ready', () => {
+        node.files.cat(hash)
+          .then(data => {
+            document.write(data.toString('utf8'))
+            document.close()
+          }).catch(console.error)
+      })
+    </script>
+  </body>
+</html>
